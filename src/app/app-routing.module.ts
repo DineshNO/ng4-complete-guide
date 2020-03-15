@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     {
         path: 'recipes', component: RecipesComponent, children: [
             { path: '', component: RecipeStartComponent },
-            { path: 'new', component: RecipeEditComponent },
+            { path: 'new', component: RecipeEditComponent }, // order is important as :id can be interpreted as 'new' - ambigutiy
             { path: ':id', component: RecipeDetailsComponent },
             { path: ':id/edit', component: RecipeEditComponent }
         ]
