@@ -4,7 +4,10 @@
     (ingredientAdded)="onIngAdded($event)"></app-shopping-edit>
     <hr>
     <ul class="list-group">
-      <a class="list-group-item" style="cursor:pointer" *ngFor="let ingredient of ingredients">
+      <a class="list-group-item" 
+      style="cursor:pointer" 
+      *ngFor="let ingredient of ingredients"
+      (click)="onEditItem()">
         {{ingredient.name}}({{ingredient.amount}})
       </a>
     </ul>
