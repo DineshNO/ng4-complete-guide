@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/cor
 import { Ingredient } from '../../shared/Ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -9,13 +10,14 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
+  subscription:Subscription;
   editMode: boolean = false;
   editedItemIndex: number;
 
   constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
-    this.slService
+    this.subscription = this.slService
       .startedEditing
       .subscribe(
         (index: number) => {
@@ -32,7 +34,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.slService.startedEditing.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }
