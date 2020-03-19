@@ -2,9 +2,11 @@ import { Recipe } from './recipe.model';
 import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/Ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RecipeService {
+  recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe('Idli', 'Indian food', 'https://cdn.pixabay.com/photo/2017/06/16/11/38/breakfast-2408818_1280.jpg',
@@ -28,6 +30,16 @@ export class RecipeService {
 
   addIngredientsToCart(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
+  }
+
+  addRecipe(recipe : Recipe){
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice())
+  }
+
+  updateRecipe(index:number,recipe : Recipe){
+    this.recipes[index] = recipe;
+    this.recipesChanged.next(this.recipes.slice())
   }
 
 }
