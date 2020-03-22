@@ -8,8 +8,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthModule } from './auth/auth.module';
 import { Authservice } from './auth/auth.service';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 import { RecipeService } from './recipes/recipe.service';
-import { RecipeModule } from './recipes/recipes.module';
 import { DataStorageService } from './shared/data-storage.service';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListRoutingModule } from './shopping-list/shopping-list-routing.module';
@@ -19,13 +19,13 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    RecipeModule,
     SharedModule,
     ShoppingListModule,
     ShoppingListRoutingModule,
