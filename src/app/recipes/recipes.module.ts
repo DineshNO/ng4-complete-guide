@@ -9,6 +9,7 @@ import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipesRoutingModule } from "./recipes-routing.module";
 import { RecipesComponent } from "./recipes.component";
 import { CommonModule } from "@angular/common";
+import { AuthGuardService } from "../auth/auth-guard.service";
 
 
 @NgModule({
@@ -26,6 +27,6 @@ import { CommonModule } from "@angular/common";
         SharedModule,
         CommonModule
     ],
-    providers:[]
+    providers:[AuthGuardService]
 })
 export class RecipesModule {}
