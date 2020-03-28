@@ -2,6 +2,8 @@ import { Ingredient } from "../../shared/Ingredient.model";
 
 export const ADD_INGREDIENT = 'ADD_INGREDIENT';
 export const ADD_INGREDIENTS = 'ADD_INGREDIENTS';
+export const UPDATE_INGREDIENT = 'UPDATE_INGREDIENT';
+export const DELETE_INGREDIENT = 'DELETE_INGREDIENT';
 
 export class AddIngredient {
     readonly type: string = ADD_INGREDIENT;
@@ -11,6 +13,14 @@ export class AddIngredients {
     readonly type: string = ADD_INGREDIENTS;
     constructor(public payload: Ingredient[]) { }
 }
+export class UpdateIngredient {
+    readonly type: string = UPDATE_INGREDIENT;
+    constructor(public payload: { index: number, ingredient: Ingredient }) { }
+}
+export class DeleteIngredient {
+    readonly type: string = DELETE_INGREDIENT;
+    constructor(public payload: number) { }
+}
 
 
-export type ShoppingListActions = AddIngredient | AddIngredients
+export type ShoppingListActions = AddIngredient | AddIngredients | UpdateIngredient | DeleteIngredient
