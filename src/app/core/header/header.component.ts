@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { DataStorageService } from "../../shared/data-storage.service";
 import * as fromApp from '../../store/app.reducer';
 import * as fromAuth from '../../auth/store/auth.reducer';
-
+import * as AuthActions from '../../auth/store/auth.action';
 
 @Component({
     selector: 'app-header',
@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit{
     }
 
     onLogout() {
-        //this.authService.signOut();
+        this.store.dispatch(new AuthActions.Logout())
     }
 
 }
