@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as shoppingListActions from '../../shopping-list/store/shopping-list.action';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
@@ -14,7 +16,8 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(private recipeService: RecipeService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private store:Store<any>) {
   }
 
   ngOnInit() {
@@ -28,7 +31,7 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   onAddToShoppingList() {
-    this.recipeService.addIngredientsToCart(this.recipe.ingredients);
+    this.store.dispatch(new shoppingListActions.AddIngredients(this.recipe.ingredients))
   }
 
   onEditRecipe() {
