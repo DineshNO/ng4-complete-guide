@@ -7,7 +7,8 @@ import 'rxjs/Rx';
 @Injectable()
 export class DataStorageService {
 
-  constructor(private recipeService : RecipeService,
+  constructor(
+    private recipeService : RecipeService,
     private httpClient : HttpClient){}
 
   storeRecipe() {

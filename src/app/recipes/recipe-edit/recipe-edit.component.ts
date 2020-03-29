@@ -75,7 +75,6 @@ export class RecipeEditComponent implements OnInit {
     let recipeIngredients = new FormArray([]);
 
     if (this.editMode) {
-      const recipe = this.recipeService.getRecipe(this.id);
       this.store.select('recipes')
         .take(1)
         .subscribe(

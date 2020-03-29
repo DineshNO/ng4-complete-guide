@@ -12,6 +12,8 @@ import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipesRoutingModule } from "./recipes-routing.module";
 import { RecipesComponent } from "./recipes.component";
 import { recipeReducer } from "./store/recipe.reducer";
+import { EffectsModule } from "@ngrx/effects";
+import { RecipeEffects } from "./store/recipe.effect";
 
 
 
@@ -29,7 +31,8 @@ import { recipeReducer } from "./store/recipe.reducer";
         RecipesRoutingModule,
         SharedModule,
         CommonModule,
-        StoreModule.forFeature('recipes',recipeReducer)
+        StoreModule.forFeature('recipes',recipeReducer),
+        EffectsModule.forFeature([RecipeEffects])
     ],
     providers:[AuthGuardService]
 })

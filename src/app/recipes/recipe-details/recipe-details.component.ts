@@ -28,7 +28,6 @@ export class RecipeDetailsComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          console.log("Id .........", this.id)
           this.recipeState = this.store.select('recipes');
         }
       )
