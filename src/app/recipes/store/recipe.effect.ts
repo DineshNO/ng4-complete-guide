@@ -3,9 +3,12 @@ import { HttpClient, HttpRequest } from "@angular/common/http";
 import { Recipe } from "../recipe.model";
 import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
-
 import * as RecipeActions from './recipe.action'
 import * as fromRecipe from './recipe.reducer';
+
+import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
 
 @Injectable()
 export class RecipeEffects {
