@@ -3,7 +3,7 @@ import { Action } from "@ngrx/store";
 export const SIGN_UP = 'SIGN_UP';
 export const SIGN_IN = 'SIGN_UP';
 export const LOGOUT = 'LOGOUT';
-export const SET_TOKEN = 'LOGOUT';
+export const SET_TOKEN = 'SET_TOKEN';
 
 
 export class Signup implements Action {
