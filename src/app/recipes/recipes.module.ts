@@ -1,5 +1,8 @@
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
+import { StoreModule } from "@ngrx/store";
+import { AuthGuardService } from "../auth/auth-guard.service";
 import { SharedModule } from "../shared/shared.module";
 import { RecipeDetailsComponent } from "./recipe-details/recipe-details.component";
 import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
@@ -8,8 +11,8 @@ import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipesRoutingModule } from "./recipes-routing.module";
 import { RecipesComponent } from "./recipes.component";
-import { CommonModule } from "@angular/common";
-import { AuthGuardService } from "../auth/auth-guard.service";
+import { recipeReducer } from "./store/recipe.reducer";
+
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { AuthGuardService } from "../auth/auth-guard.service";
         ReactiveFormsModule,
         RecipesRoutingModule,
         SharedModule,
-        CommonModule
+        CommonModule,
+        StoreModule.forFeature('recipes',recipeReducer)
     ],
     providers:[AuthGuardService]
 })
