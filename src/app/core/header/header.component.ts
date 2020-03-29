@@ -12,18 +12,13 @@ import * as AuthActions from '../../auth/store/auth.action';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
     authState: Observable<fromAuth.State>;
 
     constructor(private dataStorage: DataStorageService, public store: Store<fromApp.AppState>) { }
 
-    ngOnInit(){
-        this.authState = this.store.select('auth');          
-        this.store.select('auth')
-            .subscribe(
-                (data) => console.log("Authenticate :::::::::",data.authenticated)
-            )                ;          
-
+    ngOnInit() {
+        this.authState = this.store.select('auth');
     }
 
     onSaveData() {

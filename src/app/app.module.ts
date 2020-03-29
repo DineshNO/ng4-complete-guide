@@ -11,6 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { ShoppingListRoutingModule } from './shopping-list/shopping-list-routing.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { reducers } from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { reducers } from './store/app.reducer';
     CommonModule,
     AuthModule,
     CoreModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
 
