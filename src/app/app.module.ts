@@ -12,8 +12,10 @@ import { ShoppingListRoutingModule } from './shopping-list/shopping-list-routing
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { reducers } from './store/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthEffects } from './auth/store/auth.effects';
-
+import { environment } from './../environments/environment'
 @NgModule({
   declarations: [
     AppComponent
@@ -29,7 +31,9 @@ import { AuthEffects } from './auth/store/auth.effects';
     AuthModule,
     CoreModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects]),
+    StoreRouterConnectingModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
 
