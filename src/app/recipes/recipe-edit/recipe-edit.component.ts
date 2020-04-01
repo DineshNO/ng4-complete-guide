@@ -1,10 +1,12 @@
+
+import {take} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as RcipeActions from '../store/recipe.action';
 import * as fromRecipe from '../store/recipe.reducer';
-import 'rxjs/add/operator/take';
+
 
 
 @Component({
@@ -74,8 +76,8 @@ export class RecipeEditComponent implements OnInit {
     let recipeIngredients = new FormArray([]);
 
     if (this.editMode) {
-      this.store.select('recipes')
-        .take(1)
+      this.store.select('recipes').pipe(
+        take(1))
         .subscribe(
           (recipeState: fromRecipe.State) => {
             const recipe = recipeState.recipes[this.id];
