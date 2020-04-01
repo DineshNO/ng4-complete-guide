@@ -12,7 +12,7 @@ import * as shoppingListActions from '../store/shopping-list.action';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
-  @ViewChild('f') slForm: NgForm;
+  @ViewChild('f', {static: false}) slForm: NgForm;
   subscription: Subscription;
   editMode: boolean = false;
   editedItem: Ingredient;
