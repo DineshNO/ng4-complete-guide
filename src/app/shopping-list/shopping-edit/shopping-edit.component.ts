@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { Ingredient } from '../../shared/Ingredient.model';
 import * as fromApp from '../../store/app.reducer';
 import * as shoppingListActions from '../store/shopping-list.action';
@@ -12,7 +12,7 @@ import * as shoppingListActions from '../store/shopping-list.action';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
-  @ViewChild('f') slForm: NgForm;
+  @ViewChild('f', {static: false}) slForm: NgForm;
   subscription: Subscription;
   editMode: boolean = false;
   editedItem: Ingredient;
