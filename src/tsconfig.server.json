@@ -7,13 +7,15 @@
       "module": "commonjs",
       "types": []
     },
-    "exclude": [
-      "test.ts",
-      "**/*.spec.ts"
-    ],
     // Add "angularCompilerOptions" with the AppServerModule you wrote
     // set as the "entryModule".
     "angularCompilerOptions": {
       "entryModule": "app/app.server.module#AppServerModule"
     }
-  }
+  ,
+  "files": [
+    "main.server.ts"
+  ],  "include": [
+    "src/**/*.d.ts"
+  ]
+}
